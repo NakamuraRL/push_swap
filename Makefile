@@ -6,7 +6,7 @@ CHECK = checker
 
 ########## 		  SOURCES 		##########
 
-SRC = ./checker ./ft_atoi.c ./ft_new_node.c ./ft_print_stacks.c ./ft_push.c ./ft_put_tail.c ./ft_putnbr.c ./ft_reverse_rotate.c ./ft_rotate.c ./ft_sort.c ./ft_swap.c ./push_swap.c
+SRC = ./ft_atoi.c ./ft_new_node.c ./ft_print_stacks.c ./ft_push.c ./ft_put_tail.c ./ft_putnbr.c ./ft_reverse_rotate.c ./ft_rotate.c ./ft_sort.c ./ft_swap.c ./push_swap.c
 
 ########## 		COMPILATION 	##########
 
@@ -22,11 +22,11 @@ MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 
 ########## 		  COMMANDS		##########
 
-MAKE_LIBFT = cd ${LIBFT_PATH} && make all
+#MAKE_LIBFT = cd ${LIBFT_PATH} && make all
 
-CLEAN_LIBFT = cd ${LIBFT_PATH} && make clean -s
+#CLEAN_LIBFT = cd ${LIBFT_PATH} && make clean -s
 
-FCLEAN_LIBFT = cd ${LIBFT_PATH} && make fclean -s
+#FCLEAN_LIBFT = cd ${LIBFT_PATH} && make fclean -s
 
 RM = rm -f
 
@@ -34,11 +34,11 @@ RM = rm -f
 
 ${NAME}: ${OBJ} 
 	${MAKE_LIBFT} -s
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(LIBFT_PATH) -lft
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 ${CHECK}: ${OBJ}
 	${MAKE_LIBFT} -s
-	$(CC) $(CFLAGS) -o $(CHECK) $(OBJ) -L $(LIBFT_PATH) -lft
+	$(CC) $(CFLAGS) -o $(CHECK) $(OBJ)
 
 ########## 		   RULES 		##########
 
