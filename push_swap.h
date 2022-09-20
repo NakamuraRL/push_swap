@@ -6,7 +6,7 @@
 /*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:14:28 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/13 15:18:00 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:11:18 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	ft_push_chunk(t_list *list_a, t_list *list_b);
 void	ft_sort_3(t_list *list_a);
 void	ft_sort_5(t_list *list_a, t_list *list_b);
 void	ft_sort_100(t_list *list_a, t_list *list_b);
+void	ft_sort_500(t_list *list_a, t_list *list_b);
 
 int		ft_check(t_list *list_a, t_list *list_b);
 int		ft_get_biggest(t_list *list);
@@ -79,7 +80,8 @@ int		ft_get_smallest(t_list *list);
 int		ft_get_position(t_list *list, int nbr);
 int		ft_get_antecessor(t_list *list, int nbr);
 int		ft_get_index(t_list *list_a, int nbr);
-int		ft_get_limit(t_list *list_a);
+int		ft_get_limit(t_list *list_a, t_list *list_b);
+int		ft_get_limit(t_list *list_a, t_list *list_b);
 
 int		*ft_ordered_index(t_list *list_a);
 

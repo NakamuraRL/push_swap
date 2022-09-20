@@ -6,7 +6,7 @@
 /*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:43:04 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/13 15:17:53 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/20 14:13:47 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -370,18 +370,58 @@ void	ft_print_changed_list(t_list *list_a)
 	}
 }
 
-int		ft_get_limit(t_list *list_a)
+int		ft_get_limit(t_list *list_a, t_list *list_b)
 {
-	int	limit;
+	int			limit;
+	static int	rest;
 
-	limit = 0;
-	if (list_a->size % 20 == 0)
+	if (list_b->size == 0 && (list_a->size + list_b->size) % 5 != 0)
 	{
-		limit = 20;
+		rest = list_a->size % 5;
+	}
+	if ((list_a->size + list_b->size) % 5 == 0)
+	{
+		limit = (list_a->size + list_b->size) / 5;
+		return (limit);
+	}
+	else if (rest != 0)
+	{
+		limit = ((list_a->size + list_b->size) / 5) + 1;
+		rest--;
+		return (limit);
 	}
 	else
 	{
-		limit = list_a->size / 5;
+		limit = (list_a->size + list_b->size) / 5;
+		return (limit);
+	}
+	return (limit);
+}
+
+int		ft_get_limit_500(t_list *list_a, t_list *list_b)
+{
+	int			limit;
+	static int	rest;
+
+	if (list_b->size == 0 && (list_a->size + list_b->size) % 11 != 0)
+	{
+		rest = list_a->size % 11;
+	}
+	if ((list_a->size + list_b->size) % 11 == 0)
+	{
+		limit = (list_a->size + list_b->size) / 11;
+		return (limit);
+	}
+	else if (rest != 0)
+	{
+		limit = ((list_a->size + list_b->size) / 11) + 1;
+		rest--;
+		return (limit);
+	}
+	else
+	{
+		limit = (list_a->size + list_b->size) / 11;
+		return (limit);
 	}
 	return (limit);
 }
@@ -396,7 +436,14 @@ void	ft_push_chunk(t_list *list_a, t_list *list_b)
 	int		lim;
 	t_stack	*node;
 	
-	lim = ft_get_limit(list_a);
+	if (list_a->size + list_b->size <= 100)
+	{
+		lim = ft_get_limit(list_a, list_b);
+	}
+	else
+	{
+		lim = ft_get_limit_500(list_a, list_b);
+	}
 	size_b = list_b->size;
 	size_c = lim;
 	while (lim > 0)
@@ -434,9 +481,40 @@ void	ft_push_chunk(t_list *list_a, t_list *list_b)
 
 void	ft_sort_100(t_list *list_a, t_list *list_b)
 {
-	int		size;
-	int		b;
+	int	size;
+	int	b;
 
+	ft_change_list(list_a, ft_ordered_index(list_a));
+	while (list_a->size != 0)
+	{
+		ft_push_chunk(list_a, list_b);
+	}
+	ft_pa(list_a, list_b);
+	ft_pa(list_a, list_b);
+	ft_pa(list_a, list_b);
+	ft_sort_3(list_a);
+	size = list_b->size;
+	while (size != 0)
+	{
+		b = list_b->begin->nbr;
+		if (size == list_a->size && (b > ft_get_biggest(list_a) || b < ft_get_smallest(list_a)))
+		{
+			ft_pa(list_a, list_b);
+			size--;
+			continue ;
+		}
+		ft_ra_or_rra(list_a, b);
+		ft_pa(list_a, list_b);
+		size--;	
+	}
+	ft_sort_order(list_a);
+}
+
+void	ft_sort_500(t_list *list_a, t_list *list_b)
+{
+	int	size;
+	int	b;
+	
 	ft_change_list(list_a, ft_ordered_index(list_a));
 	while (list_a->size != 0)
 	{
@@ -483,5 +561,9 @@ void	ft_sort(t_list *list_a, t_list *list_b)
 	if (list_a->size > 5 && list_a->size <= 100)
 	{
 		ft_sort_100(list_a, list_b);
+	}
+	if (list_a->size > 100 && list_a->size <= 500)
+	{
+		ft_sort_500(list_a, list_b);
 	}
 }
