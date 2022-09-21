@@ -6,7 +6,7 @@
 /*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 10:05:39 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/07/29 16:32:43 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:48:57 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_reverse_rotate(t_list *list)
 {
 	int	i;
-	
+
 	if (list->size <= 2)
 	{
 		if (list->size == 2)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:24 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/08 14:57:44 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:42:13 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,28 @@ int	main(int argc, char **argv)
 		i++;
 		argc--;
 	}
-
 	ft_sort(&stack_a, &stack_b);
+}
+
+int	ft_check(t_list *list_a, t_list *list_b)
+{
+	int		size;
+	t_stack	*node;
+
+	if (list_b->size != 0)
+	{
+		return (0);
+	}
+	size = list_a->size;
+	node = list_a->begin;
+	while (size > 1)
+	{
+		if (node->nbr > node->next->nbr)
+		{
+			return (0);
+		}
+		node = node->next;
+		size--;
+	}
+	return (1);
 }

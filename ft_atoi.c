@@ -6,13 +6,13 @@
 /*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:03:36 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/06/27 17:05:20 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:47:07 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long	cont;
 	int		minus;

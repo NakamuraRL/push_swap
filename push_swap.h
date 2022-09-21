@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:14:28 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/20 14:11:18 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:44:30 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 
 typedef struct s_stack
 {
-    int				nbr;
-    struct s_stack	*next;
+	int				nbr;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_list
 {
-	t_stack *begin;
-	t_stack *end;
-	int size;
+	t_stack	*begin;
+	t_stack	*end;
+	int		size;
 }	t_list;
 
 int		main(int argc, char **argv);
@@ -73,6 +73,7 @@ void	ft_sort_3(t_list *list_a);
 void	ft_sort_5(t_list *list_a, t_list *list_b);
 void	ft_sort_100(t_list *list_a, t_list *list_b);
 void	ft_sort_500(t_list *list_a, t_list *list_b);
+void	ft_final_sort(t_list *list_a, t_list *list_b, int size);
 
 int		ft_check(t_list *list_a, t_list *list_b);
 int		ft_get_biggest(t_list *list);
@@ -82,7 +83,9 @@ int		ft_get_antecessor(t_list *list, int nbr);
 int		ft_get_index(t_list *list_a, int nbr);
 int		ft_get_limit(t_list *list_a, t_list *list_b);
 int		ft_get_limit(t_list *list_a, t_list *list_b);
+int		ft_hold_1(t_list *list_a, int size_b, int size_c);
 
 int		*ft_ordered_index(t_list *list_a);
+int		*ft_create_array(t_list *list_a);
 
 #endif
