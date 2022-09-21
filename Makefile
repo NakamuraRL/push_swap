@@ -64,6 +64,6 @@ norm:
 	${NORM_LIBFT_MSG}
 	@cd ${LIBFT_PATH} && norminette -R CheckForbiddenSourceHeader *.c && norminette -R CheckDefine *.h
 	${NORM_PROJ_MSG}
-	@cd ./src && norminette -R CheckForbiddenSourceHeader *.c && cd ../include && norminette -R CheckDefine *.h
+	@norminette -R CheckForbiddenSourceHeader *.c && cd ../include && norminette -R CheckDefine *.h
 
 .PHONY: all bonus clean fclean re norm

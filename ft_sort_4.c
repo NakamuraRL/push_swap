@@ -6,7 +6,7 @@
 /*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:45:14 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/21 16:44:50 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:05:29 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,9 @@ void	ft_push_chunk(t_list *list_a, t_list *list_b)
 {
 	int		hold_1;
 	int		hold_2;
-	int		size;
 	int		size_b;
 	int		size_c;
 	int		lim;
-	t_stack	*node;
 
 	if (list_a->size + list_b->size <= 100)
 		lim = ft_get_limit(list_a, list_b);
@@ -87,18 +85,7 @@ void	ft_push_chunk(t_list *list_a, t_list *list_b)
 	while (lim > 0)
 	{
 		hold_1 = ft_hold_1(list_a, size_b, size_c);
-		hold_2 = -1;
-		node = list_a->begin;
-		size = list_a->size;
-		while (size > 0)
-		{
-			if (node->nbr > size_b && node->nbr <= size_c + size_b)
-				hold_2 = node->nbr;
-			size--;
-			if (size == 0)
-				break ;
-			node = node->next;
-		}
+		hold_2 = ft_hold_2(list_a, size_b, size_c);
 		ft_h1_or_h2(list_a, list_b, hold_1, hold_2);
 		lim--;
 	}
@@ -118,4 +105,25 @@ int	ft_hold_1(t_list *list_a, int size_b, int size_c)
 		node = node->next;
 	}
 	return (h1);
+}
+
+int	ft_hold_2(t_list *list_a, int size_b, int size_c)
+{
+	int		h2;
+	int		size;
+	t_stack	*node;
+
+	h2 = -1;
+	size = list_a->size;
+	node = list_a->begin;
+	while (size > 0)
+	{
+		if (node->nbr > size_b && node->nbr <= size_c + size_b)
+			h2 = node->nbr;
+		size--;
+		if (size == 0)
+			break ;
+		node = node->next;
+	}
+	return (h2);
 }

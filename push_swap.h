@@ -6,7 +6,7 @@
 /*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:14:28 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/21 16:44:30 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:04:33 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int		ft_get_index(t_list *list_a, int nbr);
 int		ft_get_limit(t_list *list_a, t_list *list_b);
 int		ft_get_limit(t_list *list_a, t_list *list_b);
 int		ft_hold_1(t_list *list_a, int size_b, int size_c);
+int		ft_hold_2(t_list *list_a, int size_b, int size_c);
 
 int		*ft_ordered_index(t_list *list_a);
 int		*ft_create_array(t_list *list_a);
