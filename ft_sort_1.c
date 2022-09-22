@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:43:04 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/21 15:41:54 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:27:14 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_sort(t_list *list_a, t_list *list_b)
 {
+	if (ft_is_sorted(list_a) == 1)
+	{
+		return ;
+	}
 	if (list_a->size == 2)
 	{
 		if (list_a->begin->nbr > list_a->end->nbr)
@@ -71,10 +75,14 @@ void	ft_sort_5(t_list *list_a, t_list *list_b)
 	int	x;
 
 	if (list_a->size == 5)
+	{
 		ft_pb(list_a, list_b);
+		x = 2;
+	}
+	else
+		x = 1;
 	ft_pb(list_a, list_b);
 	ft_sort_3(list_a);
-	x = 2;
 	ft_final_sort(list_a, list_b, x);
 }
 

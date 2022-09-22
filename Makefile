@@ -6,7 +6,7 @@ CHECK = checker
 
 ########## 		  SOURCES 		##########
 
-SRC = ./ft_atoi.c ./ft_gets.c ./ft_new_node.c ./ft_push.c ./ft_reverse_rotate.c ./ft_rotate.c ./ft_sort_1.c ./ft_sort_2.c ./ft_sort_3.c ./ft_sort_4.c ./ft_swap.c ./push_swap.c
+SRC = ./ft_atoi.c ./ft_gets.c ./ft_new_node.c ./ft_push.c ./ft_reverse_rotate.c ./ft_rotate.c ./ft_sort_1.c ./ft_sort_2.c ./ft_sort_3.c ./ft_sort_4.c ./ft_strcmp.c ./ft_swap.c ./push_swap.c
 
 ########## 		COMPILATION 	##########
 

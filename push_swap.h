@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:14:28 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/21 17:04:33 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/22 21:00:23 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void	ft_print_stacks(t_list *list_a, t_list *list_b);
 
 void	ft_putnbr(int n);
 int		ft_atoi(const char *str);
+long long	ft_atol(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_is_sorted(t_list *list_a);
 
 void	ft_swap(t_list *list);
 void	ft_sa(t_list *list_a);
@@ -75,7 +78,10 @@ void	ft_sort_100(t_list *list_a, t_list *list_b);
 void	ft_sort_500(t_list *list_a, t_list *list_b);
 void	ft_final_sort(t_list *list_a, t_list *list_b, int size);
 
-int		ft_check(t_list *list_a, t_list *list_b);
+int		ft_check(int argc, char **argv);
+int		ft_check_range(int argc, char **argv);
+int		ft_check_dup(int argc, char **argv);
+int		ft_check_type(int argc, char **argv);
 int		ft_get_biggest(t_list *list);
 int		ft_get_smallest(t_list *list);
 int		ft_get_position(t_list *list, int nbr);
