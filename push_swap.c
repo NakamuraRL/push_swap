@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:24 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/22 21:16:05 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:34:58 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (ft_check(argc, argv) == 1)
 	{
+		stack_a.size = 0;
+		stack_b.size = 0;
 		stack_a.begin = ft_new_node(&stack_a, ft_atoi(argv[1]));
 		stack_a.end = stack_a.begin;
 		while (argc != 2)
@@ -32,6 +34,7 @@ int	main(int argc, char **argv)
 			argc--;
 		}
 		ft_sort(&stack_a, &stack_b);
+		ft_free_stack(&stack_a);
 	}
 }
 
@@ -39,17 +42,17 @@ int	ft_check(int argc, char **argv)
 {
 	if (ft_check_type(argc, argv) == 0)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	if (ft_check_range(argc, argv) == 0)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	if (ft_check_dup(argc, argv) == 0)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (0);
 	}
 	return (1);

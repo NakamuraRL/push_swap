@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grocha-l <grocha-l@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: grocha-l <grocha-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:11:02 by grocha-l          #+#    #+#             */
-/*   Updated: 2022/09/22 22:51:51 by grocha-l         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:16:30 by grocha-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,19 @@ int	*ft_ordered_index(t_list *list_a)
 int	*ft_create_array(t_list *list_a)
 {
 	int	*index;
-	int	i;
+	int	j;
 
-	index = malloc(sizeof(list_a->size));
-	i = 0;
-	while (i != list_a->size)
+	index = malloc((sizeof(int) * (list_a->size + 1)));
+	if (!index)
+		return (NULL);
+	j = 0;
+	while (j < list_a->size)
 	{
-		index[i] = list_a->begin->nbr;
-		i++;
+		index[j] = list_a->begin->nbr;
+		j++;
 		ft_rotate(list_a);
 	}
+	index[j] = '\0';
 	return (index);
 }
 
